@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mtbatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org//dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.CarMapper">
+	<resultMap type="com.example.entity.Car" id="carMap">
+		<id column="ID" property="id"/>
+		<result column="NAME" property="name"/>
+		<result column="PASSENGERS" property="passengers"/>
+	</resultMap>
+	
+	<select id="findAll" resultMap="carMap">
+		SELECT * FROM CARS
+	</select>
+</mapper>
