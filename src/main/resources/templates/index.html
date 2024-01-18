@@ -5,23 +5,21 @@
 	<title>車両一覧表示</title>
 </head>
 <body>
-	<h1>新規登録フォーム</h1>
-	<form th:action="@{/create}" method="post" th:object"${carForm}">
+	<h1>検索フォーム</h1>
+	<form th:action="@{index}" method="get">
 		<div>
-			<label>車両名</label>
+			<label>車両ID</label>
+			<input type="number" name="carId">
 		</div>
 		<div>
-			<input th:field="*{carForm.name}" type="text" placeholder="車両名を登録してください">
+			<label>車両名</label>
+			<input type="text" name="carName">
 		</div>
 		<div>
 			<label>乗員数</label>
+			<input type="number" name="carPassengers">
 		</div>
-		<div>
-			<input th:field="*{carForm.passengers}" type="number" placeholder="乗員数を入力してください">
-		</div>
-		<div>
-			<input type="submit" value="登録する">
-		</div>
+		<input type="submit" value="検索">
 	</form>
 	<h1>車両一覧表示</h1>
 	<table>
@@ -45,12 +43,30 @@
 					</form>
 				</td>
 				<td>
-					<form method="post">
+					<form th:action="@{/delete/{id}(id=${car.id})}" method="post">
 						<input type="submit" value="削除">
 					</form>
 				</td>
 			</tr>
 		</tbody>
 	</table>
+	<h1>新規登録フォーム</h1>
+	<form th:action="@{/create}" method="post" th:object"${carForm}">
+		<div>
+			<label>車両名</label>
+		</div>
+		<div>
+			<input th:field="*{carForm.name}" type="text" placeholder="車両名を登録してください">
+		</div>
+		<div>
+			<label>乗員数</label>
+		</div>
+		<div>
+			<input th:field="*{carForm.passengers}" type="number" placeholder="乗員数を入力してください">
+		</div>
+		<div>
+			<input type="submit" value="登録する">
+		</div>
+	</form>
 </body>
 </html>

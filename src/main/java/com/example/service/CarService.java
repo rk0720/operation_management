@@ -17,8 +17,8 @@ public class CarService {
 		this.carMapper = carMapper;
 	}
 
-	public List<Car> findAll() {
-	return this.carMapper.findAll();
+	public List<Car> findAll(Integer id, String name, Integer passenger) {
+	return this.carMapper.findAll(id, name, passenger);
 	}
 	
 	public void insert(String name, Integer passengers) {
@@ -39,6 +39,10 @@ public class CarService {
 		car.setName(name);
 		car.setPassengers(passengers);
 		this.carMapper.update(car);
+	}
+	
+	public void deleteById(Integer id) {
+		this.carMapper.deleteById(id);
 	}
 	
 }

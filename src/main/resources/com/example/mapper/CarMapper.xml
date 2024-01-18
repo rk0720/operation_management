@@ -10,7 +10,21 @@
 	</resultMap>
 	
 	<select id="findAll" resultMap="carMap">
-		SELECT * FROM CARS
+		SELECT
+			*
+		FROM
+			CARS
+		<where>
+			<if test="carId != null">
+				ID = #{carId}
+			</if>
+			<if test="carName != null">
+				OR NAME = #{carName}
+			</if>
+			<if test="carPassengers != null">
+				OR PASSENGERS = #{carPassengers}
+			</if>
+		</where>
 	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyColumn="ID" keyProperty="id">
@@ -35,4 +49,11 @@
 		WHERE
 			ID = #{id}
 	</update>
+	
+	<delete id="deleteById">
+		DELETE FROM
+			CARS
+		WHERE
+			ID = #{id}
+	</delete>
 </mapper>
