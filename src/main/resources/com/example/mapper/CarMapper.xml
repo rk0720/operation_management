@@ -25,4 +25,14 @@
 		WHERE
 			ID = #{id}
 	</select>
+
+	<update id="update">
+		UPDATE
+			CARS
+		SET
+			NAME = #{name},
+			PASSENGERS = #{passengers}
+		WHERE
+			ID = #{id}
+	</update>
 </mapper>
