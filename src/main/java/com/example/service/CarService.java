@@ -20,4 +20,16 @@ public class CarService {
 	public List<Car> findAll() {
 	return this.carMapper.findAll();
 	}
+	
+	public void insert(String name, Integer passengers) {
+		Car car = new Car();
+		car.setName(name);
+		car.setPassengers(passengers);
+		this.carMapper.insert(car);
+		System.out.println("自動採番されたID :" + car.getId());
+	}
+	
+	public Car findById(Integer id) {
+		return this.carMapper.findById(id);
+	}
 }
