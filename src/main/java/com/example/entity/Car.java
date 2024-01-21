@@ -4,6 +4,8 @@ public class Car {
 	private int id;
 	private String name;
 	private int passengers;
+	
+	private Driver driver;
 
 	public int getId() {
 		return id;
@@ -22,5 +24,13 @@ public class Car {
 	}
 	public void setPassengers(int passengers) {
 		this.passengers = passengers;
+	}
+	
+	public Driver getDriver() {
+		return driver;
+	}
+	
+	public void setDriver(Driver driver) {
+		this.driver = driver;
 	}
 }
