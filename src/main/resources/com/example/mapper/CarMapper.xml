@@ -37,6 +37,7 @@
 	
 	<select id="findById" resultMap="carMap">
 		SELECT
+			C.ID,
 			C.NAME,
 			C.PASSENGERS,
 			D.ID AS D_ID,
